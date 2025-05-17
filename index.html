@@ -1,40 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shut Up</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column; /* Arrange items vertically */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbital Speed Calculator</title>
 
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px; /* Add some space below the text */
-            font-size: 5rem;
-        }
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        img {
-            max-width: 80%; /* Ensure the image doesn't exceed the viewport width */
-            height: auto; /* Maintain aspect ratio */
-            /* Optional: Add styling for the image */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1447433819943-74a20887a81e?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calculator-container {
+      max-width: 500px;
+      width: 100%;
+      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .calculator-container h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .calculator-container input,
+    .calculator-container button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 0.75rem;
+    }
+
+    .calculator-container button {
+      background-color: #2563eb;
+      color: white;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .calculator-container button:hover {
+      background-color: #1d4ed8;
+    }
+
+    #result {
+      margin-top: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <h1>Yousuf's a dumb ass ngl - mujaddid</h1>
-    <img src="WhatsApp Image 2025-03-06 at 10.04.43_694b65dd.png" alt="A relevant image description">
+
+  <div class="calculator-container">
+    <h2>Calculate Orbital Speed, femboy</h2>
+    <p class="text-sm text-gray-700 text-center mb-4">
+      Formula: <code>v = 2πr / T</code> (yeah thats what the formula is you dementia gurting ng black bean ahh chopped sh)
+    </p>
+
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">
+          Radius (r) in kilometers (put numbers in no letter u lil freakster)
+        </label>
+        <input id="radius" type="number" placeholder="e.g., 7000" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">
+          Orbital Period (T) in seconds (you cant do it bro js give up)
+        </label>
+        <input id="time" type="number" placeholder="e.g., 5800" />
+      </div>
+
+      <button onclick="calculateOrbitalSpeed()">Calculate</button>
+
+      <div id="result" class="text-green-600 text-lg"></div>
+    </div>
+  </div>
+
+  <script>
+    function calculateOrbitalSpeed() {
+      const r = parseFloat(document.getElementById('radius').value) * 1000;
+      const T = parseFloat(document.getElementById('time').value);
+      const resultBox = document.getElementById('result');
+
+      if (isNaN(r) || isNaN(T) || r <= 0 || T <= 0) {
+        resultBox.textContent = 'Please enter valid positive numbers on god you deadass weird bruh';
+        resultBox.classList.remove('text-green-600');
+        resultBox.classList.add('text-red-600');
+        return;
+      }
+
+      const v = (2 * Math.PI * r) / T;
+      resultBox.textContent = `Orbital Speed: ${v.toFixed(2)} m/s`;
+      resultBox.classList.remove('text-red-600');
+      resultBox.classList.add('text-green-600');
+    }
+  </script>
+
 </body>
 </html>
