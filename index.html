@@ -2,115 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gurt orbital speed calc lolll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠💥 Brainrot Generator 2025</title>
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     body {
-      background-image: url('ye.jpg');
-      background-position: center;
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 2rem;
     }
 
-    .calculator-container {
+    .glow-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+      width: 100%;
       max-width: 500px;
-      width: 100%;
-      padding: 2.5rem;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 1.25rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-    }
-
-    .calculator-container h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
       text-align: center;
     }
 
-    .calculator-container input,
-    .calculator-container button {
-      width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.4rem;
-      border: 1px solid #ccc;
+    .glow-card input,
+    .glow-card button {
       border-radius: 0.75rem;
+      width: 100%;
     }
 
-    .calculator-container button {
-      background-color: #2563eb;
-      color: white;
-      margin-top: 1rem;
-      cursor: pointer;
-    }
-
-    .calculator-container button:hover {
-      background-color: #1d4ed8;
-    }
-
-    #result {
-      margin-top: 1rem;
-      font-weight: 600;
-      text-align: center;
+    #output {
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
+  <div class="glow-card space-y-4">
+    <h1 class="text-3xl font-bold mb-2">🤯💀 Convert ordinary text to brainrot</h1>
+    <p class="text-sm text-purple-200 mb-4">Type a sentence and my program wil convert it to brainrot idk why i made this - Hasan</p>
 
-  <div class="calculator-container">
-    <h2>Calculate Orbital Speed, femboy (yo gurt 💔💔💔🥀)</h2>
-    <p class="text-sm text-gray-700 text-center mb-4">
-      Formula: <code>v = 2πr / T</code> (yeah thats what the formula is you dementia gurting ng black bean ahh chopped sh)
-    </p>
+    <input id="inputText" type="text" placeholder="e.g., yo gurt are you 6'6" class="p-3 text-black placeholder-gray-400"/>
+    <button onclick="brainrotify()" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 mt-2">
+      Brainrotify 💔🥀
+    </button>
 
-    <div class="space-y-4">
-      <div>
-        <label class="block text-sm font-medium">
-          Radius (r) in kilometers (put numbers in no letter u lil freakster)
-        </label>
-        <input id="radius" type="number" placeholder="e.g., 7000" />
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium">
-          Orbital Period (T) in seconds (you cant do it bro js give up)
-        </label>
-        <input id="time" type="number" placeholder="e.g., 5800" />
-      </div>
-
-      <button onclick="calculateOrbitalSpeed()">Calculate</button>
-
-      <div id="result" class="text-green-600 text-lg"></div>
-    </div>
+    <div id="output" class="text-xl text-green-300 mt-4 font-bold"></div>
   </div>
 
   <script>
-    function calculateOrbitalSpeed() {
-      const r = parseFloat(document.getElementById('radius').value) * 1000;
-      const T = parseFloat(document.getElementById('time').value);
-      const resultBox = document.getElementById('result');
+    const adjectives = [
+      "feral", "goblin-coded", "delulu", "insanely rizzy", "bussin", "fermented", "anti-slump", "yeetified", "gyrating", "sigma-infused"
+    ];
 
-      if (isNaN(r) || isNaN(T) || r <= 0 || T <= 0) {
-        resultBox.textContent = 'Please enter valid positive numbers on god you deadass weird bruh';
-        resultBox.classList.remove('text-green-600');
-        resultBox.classList.add('text-red-600');
+    const phrases = [
+      "frfr on god", "no cap", "💀💀💀", "rizzless behavior", "me when the", "absolutely no thoughts", "i'm him", "girl help", "🧍‍♂️😭", "brain go brrrr"
+    ];
+
+    const emojiSpam = "🤸🦑🧠💥💅✨👽🛸😩😈🔥🔥🔥";
+
+    function brainrotify() {
+      const input = document.getElementById("inputText").value;
+      if (!input.trim()) {
+        document.getElementById("output").textContent = "bro you gotta type sum 💀";
         return;
       }
 
-      const v = (2 * Math.PI * r) / T;
-      resultBox.textContent = `Orbital Speed: ${v.toFixed(2)} m/s`;
-      resultBox.classList.remove('text-red-600');
-      resultBox.classList.add('text-green-600');
+      const chaotic = `${input} but like ${adjectives[Math.floor(Math.random() * adjectives.length)]} ${phrases[Math.floor(Math.random() * phrases.length)]} ${emojiSpam}`;
+      document.getElementById("output").textContent = chaotic;
     }
   </script>
-
 </body>
 </html>
